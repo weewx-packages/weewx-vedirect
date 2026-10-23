@@ -47,9 +47,11 @@ Use a suitable VE.Direct serial interface and select its device path:
 
 Give the WeeWX service user serial access. The driver opens at 19200 baud and
 validates text-frame checksums. It converts `I`, `V` and `VPV` from milli-units
-to amps/volts; history values remain raw device counters. This package includes
-no archive schema or skin. Declare the corresponding observation units and
-archive columns before using those fields in reports or storing history.
+to amps/volts; history values remain raw device counters. The module includes
+the example schema `user.vedirect.schema`, but its `LOAD` and `ERR` columns
+differ from the emitted `load` and `error` names. Match archive columns to the
+emitted names and declare their observation units before storing or reporting
+them. The installer does not select a schema or supply a skin.
 
 The mirror's Python 2 serial handling differs from the catalog archive. Do not
 install the mirror branch over the repaired release. No device was tested during
